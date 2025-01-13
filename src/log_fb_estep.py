@@ -33,7 +33,7 @@ def log_forward_message(
         log_A: Log transition matrix, shape (n_states, n_states).
     
     Returns:
-        An instance of LogForward containing log_alpha and log_c.
+        A tuple containing log_alpha, and the log normalizers.
     """
     n_steps, _ = log_lik_obs.shape
 
@@ -70,7 +70,7 @@ def log_backward_message(
         log_c: Log normalization constants from forward messages, shape (n_steps,).
     
     Returns:
-        An instance of LogBackward containing log_beta.
+        Log beta messages.
     """
     n_steps, n_states = log_lik_obs.shape
 
@@ -107,7 +107,7 @@ def expectations(
         log_A: Log transition matrix, shape (n_states, n_states).
     
     Returns:
-        A dictionary containing:
+        A tuple containing:
             - 'xi': Expected transitions, shape (n_states, n_states).
             - 'gamma': Expected states, shape (n_steps, n_states).
             - 'pi0': Initial state probabilities, shape (n_states,).
