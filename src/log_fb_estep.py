@@ -100,8 +100,8 @@ def expectations(
     Computes the expectations (xi and gamma) for the Hidden Markov Model.
     
     Args:
-        log_alpha: Instance of LogForward containing forward messages.
-        log_beta: Instance of LogBackward containing backward messages.
+        log_alpha: Array output from log_forward_message.
+        log_beta: Array output from log_backward_message.
         log_c: Log normalization constants from forward messages, shape (n_steps,).
         log_lik_obs: Log likelihoods of observations, shape (n_steps, n_states).
         log_A: Log transition matrix, shape (n_states, n_states).
